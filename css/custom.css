@@ -31,3 +31,27 @@
 [data-theme="dark"] #page-header::before {
     background: transparent !important;
 }
+
+#page {
+    background: rgba(255, 255, 255, 0.2);  /* 半透明背景 */
+    backdrop-filter: blur(10px);          /* 应用高斯模糊 */
+    -webkit-backdrop-filter: blur(10px);  /* 兼容 Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 可选边框 */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);  /* 可选阴影 */
+    border-radius: 16px;                  /* 可选圆角 */
+    transition: all 0.3s ease;            /* 平滑过渡 */
+}
+
+#web_bg {
+    filter: blur(5px);          /* 应用高斯模糊 */
+    z-index: -1;
+    opacity: 0;
+    animation: fadeInBlur 0.5s ease-in forwards;
+}
+
+
+@keyframes fadeInBlur {
+    to {
+      opacity: 1;
+    }
+  }
