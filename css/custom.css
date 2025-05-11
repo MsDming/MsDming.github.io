@@ -1,0 +1,77 @@
+/* 页脚透明 */
+#footer {
+    background: transparent !important;
+}
+
+/* 页脚黑色透明玻璃效果移除 */
+#footer::before {
+    background: transparent !important;
+}
+
+/* 头图透明 */
+#page-header {
+    background: transparent !important;
+}
+
+/* 头图遮罩层透明 */
+/* #page-header::before {
+    background: transparent !important;
+} */
+
+/*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
+/* #page-header.post-bg:before {
+    background-color: transparent !important;
+} */
+
+/*夜间模式伪类遮罩层透明*/
+[data-theme="dark"] #footer::before {
+    background: transparent !important;
+}
+
+[data-theme="dark"] #page-header::before {
+    background: transparent !important;
+}
+
+#web_bg {
+    filter: blur(5px);          /* 应用高斯模糊 */
+    z-index: -1;
+    opacity: 0;
+    animation: fadeInBlur 0.5s ease-in forwards;
+}
+
+/* 给页面添加磨砂玻璃效果 */
+#page {
+    /* 设置半透明背景 */
+    background: rgba(255, 255, 255, 0.5);
+    /* 应用高斯模糊效果 */
+    backdrop-filter: blur(15px);
+    /* Safari浏览器兼容性支持 */
+    -webkit-backdrop-filter: blur(15px);
+    /* 添加细边框增加层次感 */
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    /* 添加阴影效果增加立体感 */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    /* 设置圆角使外观更现代 */
+    border-radius: 16px;
+    /* 添加过渡动画使变化更平滑 */
+    transition: all 0.3s ease;
+}
+
+/* 夜间模式下的页面样式 */
+[data-theme="dark"] #page {
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInBlur {
+    to {
+      opacity: 1;
+    }
+}
+
+#page-header.not-home-page  {
+    height: 300px !important;
+}
+#page-header #page-site-info {
+    top: 150px !important;
+}
