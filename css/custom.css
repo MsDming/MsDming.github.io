@@ -42,7 +42,7 @@
 /* 给页面添加磨砂玻璃效果 */
 #page {
     /* 设置半透明背景 */
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.75);
     /* 应用高斯模糊效果 */
     backdrop-filter: blur(15px);
     /* Safari浏览器兼容性支持 */
@@ -59,7 +59,7 @@
 
 /* 夜间模式下的页面样式 */
 [data-theme="dark"] #page {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
