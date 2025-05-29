@@ -41,7 +41,8 @@
 }
 
 /* 给页面添加磨砂玻璃效果 */
-#page {
+#page,
+#archive {
     /* 设置半透明背景 */
     background: rgba(255, 255, 255, 0.75);
     /* 应用高斯模糊效果 */
@@ -59,7 +60,8 @@
 }
 
 /* 夜间模式下的页面样式 */
-[data-theme="dark"] #page {
+[data-theme="dark"] #page,
+[data-theme="dark"] #archive {
     background: rgba(0, 0, 0, 0.75);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
@@ -103,4 +105,3 @@ body {
 .bangumi-title a {
     color: darksalmon;
 }
-
