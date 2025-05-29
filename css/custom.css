@@ -75,3 +75,7 @@
 #page-header #page-site-info {
     top: 150px !important;
 }
+
+body {
+    font-family: "LXGW WenKai Screen", sans-serif;
+}
