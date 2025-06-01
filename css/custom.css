@@ -107,3 +107,39 @@ body {
 .bangumi-title a {
     color: darksalmon;
 }
+
+/* 关于页面头像样式 */
+.about-avatar {
+    position: relative;
+    margin-bottom: 1rem;
+    text-align: center; /* 文本居中 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 子元素水平居中 */
+}
+
+.about-avatar img {
+    position: relative;
+    top: -120px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-bottom: -100px; /* 调整间距，让h2标题更靠近头像 */
+}
+
+.about-avatar h2 {
+    margin-top: 0; /* 移除标题的默认上边距 */
+    color: var(--font-color); /* 使用主题的文字颜色变量 */
+}
+
+.about-avatar p {
+    margin-top: 0; /* 移除段落的默认上边距 */
+    color: var(--font-color); /* 使用主题的文字颜色变量 */
+    font-size: 1.8em; /* 加大字号 */
+    font-weight: bold; /* 文字加粗 */
+}
+
+.about-avatar img:hover {
+    transform: rotate(360deg);
+}
