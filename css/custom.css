@@ -143,3 +143,35 @@ body {
 .about-avatar img:hover {
     transform: rotate(360deg);
 }
+
+/* 社交图标样式 */
+.social-icons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem; /* 图标之间的间距 */
+    justify-content: center;
+}
+
+.social-icons a {
+    font-size: 1.5rem; /* 图标大小 */
+    color: var(--font-color);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* 鼠标悬停时图标放大 */
+    color: #49b1f5; /* 悬停时的颜色 */
+}
+
+/* 特定图标的颜色 */
+.social-icons a.qq-icon:hover {
+    color: #12B7F5;
+}
+
+.social-icons a.wechat-icon:hover {
+    color: #07C160;
+}
+
+.social-icons .fa-github:hover {
+    color: #333;
+}
