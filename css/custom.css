@@ -142,7 +142,7 @@ body {
 }
 
 .about-avatar img:hover {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
 }
 
 /* 社交图标样式 */
