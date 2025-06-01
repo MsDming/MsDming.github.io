@@ -160,8 +160,8 @@ body {
 }
 
 .social-icons a:hover {
-    transform: scale(1.2); /* 鼠标悬停时图标放大 */
-    color: #49b1f5; /* 悬停时的颜色 */
+    transform: scale(1.3);
+    /* color: #49b1f5; */
 }
 
 /* 特定图标的颜色 */
@@ -173,6 +173,6 @@ body {
     color: #07C160;
 }
 
-.social-icons .fa-github:hover {
+.social-icons .fab-github:hover {
     color: #333;
 }
