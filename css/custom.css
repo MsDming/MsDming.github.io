@@ -135,6 +135,7 @@ body {
 
 .about-avatar p {
     margin-top: 0; /* 移除段落的默认上边距 */
+    margin-bottom: 0;
     color: var(--font-color); /* 使用主题的文字颜色变量 */
     font-size: 1.8em; /* 加大字号 */
     font-weight: bold; /* 文字加粗 */
@@ -146,10 +147,10 @@ body {
 
 /* 社交图标样式 */
 .social-icons {
-    margin-top: 1rem;
     display: flex;
     gap: 1.5rem; /* 图标之间的间距 */
     justify-content: center;
+    margin-bottom: 0;
 }
 
 .social-icons a {
