@@ -91,6 +91,49 @@ body {
     max-width: 70%;
 }
 
+/* 响应式布局调整 */
+@media screen and (max-width: 768px) {
+    #content-inner {
+        max-width: 95%; /* 在窄屏下增加内容区域宽度 */
+    }
+
+    #page,
+    #post,
+    .recent-post-item,
+    #archive {
+        margin: 0.5rem; /* 减小外边距 */
+        border-radius: 12px; /* 稍微减小圆角 */
+    }
+
+    /* 调整头像在移动端的大小和位置 */
+    .about-avatar img {
+        width: 150px;
+        height: 150px;
+        top: -80px;
+        margin-bottom: -60px;
+    }
+
+    /* 调整社交图标在移动端的大小 */
+    .social-icons a {
+        font-size: 1.2rem;
+    }
+}
+
+/* 更窄的屏幕（如手机竖屏） */
+@media screen and (max-width: 480px) {
+    #content-inner {
+        max-width: 98%; /* 在更窄的屏幕上几乎占满宽度 */
+    }
+
+    #page,
+    #post,
+    .recent-post-item,
+    #archive {
+        margin: 0.3rem; /* 进一步减小外边距 */
+        padding: 1rem; /* 减小内边距 */
+    }
+}
+
 #recent-posts {
     max-width: 800px;
     /*居中*/
