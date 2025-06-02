@@ -10,9 +10,9 @@ body {
 /* 内容区域布局 - 动态响应式 */
 #content-inner {
     /* 使用clamp()函数实现动态宽度：最小值, 首选值, 最大值 */
-    max-width: clamp(320px, 95vw, 1200px);
-    /* 在小屏幕时接近95%，大屏幕时不超过1200px */
-    width: clamp(60%, 70vw + 10%, 80%);
+    max-width: clamp(320px, 98vw, 1200px);
+    /* 在小屏幕时接近98%，大屏幕时不超过1200px */
+    width: clamp(85%, 70vw + 15%, 80%);
 }
 
 #recent-posts {
@@ -55,7 +55,7 @@ body {
 
 /* 背景图片模糊效果 */
 #web_bg {
-    filter: blur(5px);
+    filter: blur(3px);
     z-index: -1;
     opacity: 0;
     animation: fadeInBlur 0.5s ease-in forwards;
@@ -79,7 +79,7 @@ body {
     /* 动态边距：根据视口宽度调整 */
     margin: clamp(0.3rem, 1vw, 1rem);
     /* 动态内边距 */
-    padding: clamp(1rem, 3vw, 2rem);
+    /* padding: clamp(1rem, 3vw, 2rem); */
     transition: all 0.3s ease;
 }
 
@@ -87,6 +87,7 @@ body {
 [data-theme="dark"] #page,
 [data-theme="dark"] #post,
 [data-theme="dark"] .recent-post-item,
+[data-theme="dark"] #sidebar-menus,
 [data-theme="dark"] #archive {
     background: rgba(29, 35, 49, 0.75) !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -124,8 +125,8 @@ body {
     /* 动态偏移：根据视口宽度调整 */
     top: clamp(-80px, -15vw, -120px);
     /* 动态尺寸：小屏幕时较小，大屏幕时较大 */
-    width: clamp(120px, 25vw, 200px);
-    height: clamp(120px, 25vw, 200px);
+    width: clamp(120px, 25vw, 180px);
+    height: clamp(120px, 25vw, 180px);
     border-radius: 50%;
     transition: all 0.3s ease;
     /* 动态下边距补偿 */
@@ -191,6 +192,10 @@ body {
 
 .bangumi-info-items {
     font-size: 15px !important;
+    /* 确保内容不换行挤压 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .bangumi-title a {
@@ -237,6 +242,26 @@ body {
     .social-icons a {
         font-size: 1.2rem;
     }
+
+    /* 追番页面移动端优化 */
+    .bangumi-info-items {
+        font-size: 13px !important;
+        /* 允许换行显示完整内容 */
+        white-space: normal !important;
+        word-break: break-word;
+        line-height: 1.4;
+    }
+
+    .bangumi-summary {
+        font-size: 12px !important;
+        line-height: 1.3;
+    }
+
+    /* 番剧卡片间距调整 */
+    .bangumi-card {
+        margin-bottom: 1rem;
+        padding: 0.8rem;
+    }
 }
 
 /* 手机竖屏 */
@@ -252,5 +277,19 @@ body {
         margin: 0.3rem;
         padding: 1rem;
     }
-}
 
+    /* 极窄屏幕下的追番页面优化 */
+    .bangumi-info-items {
+        font-size: 12px !important;
+        padding: 0.3rem 0;
+    }
+
+    .bangumi-title a {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .bangumi-summary {
+        font-size: 11px !important;
+    }
+}
