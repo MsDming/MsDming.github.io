@@ -42,10 +42,10 @@
 
 /* 给页面添加磨砂玻璃效果 */
 #page,
-#post,
+#post,.recent-post-item,
 #archive {
     /* 设置半透明背景 */
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(230, 238, 247, 0.75) !important;
     /* 应用高斯模糊效果 */
     backdrop-filter: blur(15px);
     /* Safari浏览器兼容性支持 */
@@ -63,8 +63,9 @@
 /* 夜间模式下的页面样式 */
 [data-theme="dark"] #page,
 [data-theme="dark"] #post,
+[data-theme="dark"] .recent-post-item,
 [data-theme="dark"] #archive {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(29, 35, 49, 0.75) !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -112,10 +113,12 @@ body {
 .about-avatar {
     position: relative;
     margin-bottom: 1rem;
-    text-align: center; /* 文本居中 */
+    text-align: center;
+    /* 文本居中 */
     display: flex;
     flex-direction: column;
-    align-items: center; /* 子元素水平居中 */
+    align-items: center;
+    /* 子元素水平居中 */
 }
 
 .about-avatar img {
@@ -125,20 +128,27 @@ body {
     height: 200px;
     border-radius: 50%;
     transition: all 0.3s ease;
-    margin-bottom: -100px; /* 调整间距，让h2标题更靠近头像 */
+    margin-bottom: -100px;
+    /* 调整间距，让h2标题更靠近头像 */
 }
 
 .about-avatar h2 {
-    margin-top: 0; /* 移除标题的默认上边距 */
-    color: var(--font-color); /* 使用主题的文字颜色变量 */
+    margin-top: 0;
+    /* 移除标题的默认上边距 */
+    color: var(--font-color);
+    /* 使用主题的文字颜色变量 */
 }
 
 .about-avatar p {
-    margin-top: 0; /* 移除段落的默认上边距 */
+    margin-top: 0;
+    /* 移除段落的默认上边距 */
     margin-bottom: 0;
-    color: var(--font-color); /* 使用主题的文字颜色变量 */
-    font-size: 1.8em; /* 加大字号 */
-    font-weight: bold; /* 文字加粗 */
+    color: var(--font-color);
+    /* 使用主题的文字颜色变量 */
+    font-size: 1.8em;
+    /* 加大字号 */
+    font-weight: bold;
+    /* 文字加粗 */
 }
 
 .about-avatar img:hover {
@@ -148,13 +158,15 @@ body {
 /* 社交图标样式 */
 .social-icons {
     display: flex;
-    gap: 1.5rem; /* 图标之间的间距 */
+    gap: 1.5rem;
+    /* 图标之间的间距 */
     justify-content: center;
     margin-bottom: 0;
 }
 
 .social-icons a {
-    font-size: 1.5rem; /* 图标大小 */
+    font-size: 1.5rem;
+    /* 图标大小 */
     color: var(--font-color);
     transition: all 0.3s ease;
 }
