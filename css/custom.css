@@ -1,9 +1,35 @@
+/* ==========================================================================
+   全局样式配置
+   ========================================================================== */
+
+/* 字体设置 */
+body {
+    font-family: "LXGW WenKai Screen", sans-serif;
+}
+
+/* 内容区域布局 - 动态响应式 */
+#content-inner {
+    /* 使用clamp()函数实现动态宽度：最小值, 首选值, 最大值 */
+    max-width: clamp(320px, 95vw, 1200px);
+    /* 在小屏幕时接近95%，大屏幕时不超过1200px */
+    width: clamp(60%, 70vw + 10%, 80%);
+}
+
+#recent-posts {
+    /* 使用视口宽度单位实现平滑过渡 */
+    max-width: clamp(300px, 50vw + 300px, 800px);
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   背景与透明度设置
+   ========================================================================== */
+
 /* 页脚透明 */
 #footer {
     background: transparent !important;
 }
 
-/* 页脚黑色透明玻璃效果移除 */
 #footer::before {
     background: transparent !important;
 }
@@ -18,12 +44,7 @@
     background: transparent !important;
 } */
 
-/*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
-/* #page-header.post-bg:before {
-    background-color: transparent !important;
-} */
-
-/*夜间模式伪类遮罩层透明*/
+/* 夜间模式遮罩层透明 */
 [data-theme="dark"] #footer::before {
     background: transparent !important;
 }
@@ -32,31 +53,33 @@
     background: transparent !important;
 }
 
+/* 背景图片模糊效果 */
 #web_bg {
     filter: blur(5px);
-    /* 应用高斯模糊 */
     z-index: -1;
     opacity: 0;
     animation: fadeInBlur 0.5s ease-in forwards;
 }
 
-/* 给页面添加磨砂玻璃效果 */
+/* ==========================================================================
+   磨砂玻璃效果
+   ========================================================================== */
+
+/* 页面内容区域玻璃效果 - 动态响应式 */
 #page,
-#post,.recent-post-item,
+#post,
+.recent-post-item,
 #archive {
-    /* 设置半透明背景 */
     background: rgba(230, 238, 247, 0.75) !important;
-    /* 应用高斯模糊效果 */
     backdrop-filter: blur(15px);
-    /* Safari浏览器兼容性支持 */
     -webkit-backdrop-filter: blur(15px);
-    /* 添加细边框增加层次感 */
-    /* border: 1px solid rgba(255, 255, 255, 0.3); */
-    /* 添加阴影效果增加立体感 */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    /* 设置圆角使外观更现代 */
-    border-radius: 16px;
-    /* 添加过渡动画使变化更平滑 */
+    /* 动态圆角：小屏幕时较小，大屏幕时较大 */
+    border-radius: clamp(8px, 2vw, 16px);
+    /* 动态边距：根据视口宽度调整 */
+    margin: clamp(0.3rem, 1vw, 1rem);
+    /* 动态内边距 */
+    padding: clamp(1rem, 3vw, 2rem);
     transition: all 0.3s ease;
 }
 
@@ -69,11 +92,9 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes fadeInBlur {
-    to {
-        opacity: 1;
-    }
-}
+/* ==========================================================================
+   页面头部设置
+   ========================================================================== */
 
 #page-header.not-home-page {
     height: 300px !important;
@@ -83,26 +104,125 @@
     top: 150px !important;
 }
 
-body {
-    font-family: "LXGW WenKai Screen", sans-serif;
+/* ==========================================================================
+   关于页面样式
+   ========================================================================== */
+
+/* 头像容器 */
+.about-avatar {
+    position: relative;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#content-inner {
-    max-width: 70%;
+/* 头像图片 */
+.about-avatar img {
+    position: relative;
+    /* 动态偏移：根据视口宽度调整 */
+    top: clamp(-80px, -15vw, -120px);
+    /* 动态尺寸：小屏幕时较小，大屏幕时较大 */
+    width: clamp(120px, 25vw, 200px);
+    height: clamp(120px, 25vw, 200px);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    /* 动态下边距补偿 */
+    margin-bottom: clamp(-60px, -12vw, -100px);
 }
 
-/* 响应式布局调整 */
+.about-avatar img:hover {
+    transform: rotate(180deg);
+}
+
+/* 头像下方文字 */
+.about-avatar h2 {
+    margin-top: 0;
+    color: var(--font-color);
+}
+
+.about-avatar p {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--font-color);
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* 社交图标 */
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: var(--font-color);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.3);
+}
+
+/* 特定图标的悬停颜色 */
+.social-icons a.qq-icon:hover {
+    color: #12B7F5;
+}
+
+.social-icons a.wechat-icon:hover {
+    color: #07C160;
+}
+
+.social-icons .fab-github:hover {
+    color: #333;
+}
+
+/* ==========================================================================
+   追番页面样式
+   ========================================================================== */
+
+.bangumi-summary {
+    font-size: 14px !important;
+}
+
+.bangumi-info-items {
+    font-size: 15px !important;
+}
+
+.bangumi-title a {
+    color: darksalmon;
+}
+
+/* ==========================================================================
+   动画效果
+   ========================================================================== */
+
+@keyframes fadeInBlur {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================================================
+   响应式布局
+   ========================================================================== */
+
+/* 平板和小屏设备 */
 @media screen and (max-width: 768px) {
     #content-inner {
-        max-width: 95%; /* 在窄屏下增加内容区域宽度 */
+        max-width: 95%;
     }
 
     #page,
     #post,
     .recent-post-item,
     #archive {
-        margin: 0.5rem; /* 减小外边距 */
-        border-radius: 12px; /* 稍微减小圆角 */
+        margin: 0.5rem;
+        border-radius: 12px;
     }
 
     /* 调整头像在移动端的大小和位置 */
@@ -119,115 +239,18 @@ body {
     }
 }
 
-/* 更窄的屏幕（如手机竖屏） */
+/* 手机竖屏 */
 @media screen and (max-width: 480px) {
     #content-inner {
-        max-width: 98%; /* 在更窄的屏幕上几乎占满宽度 */
+        max-width: 98%;
     }
 
     #page,
     #post,
     .recent-post-item,
     #archive {
-        margin: 0.3rem; /* 进一步减小外边距 */
-        padding: 1rem; /* 减小内边距 */
+        margin: 0.3rem;
+        padding: 1rem;
     }
 }
 
-#recent-posts {
-    max-width: 800px;
-    /*居中*/
-    margin: 0 auto;
-}
-
-.bangumi-summary {
-    font-size: 14px !important;
-}
-
-.bangumi-info-items {
-    font-size: 15px !important;
-}
-
-.bangumi-title a {
-    color: darksalmon;
-}
-
-/* 关于页面头像样式 */
-.about-avatar {
-    position: relative;
-    margin-bottom: 1rem;
-    text-align: center;
-    /* 文本居中 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* 子元素水平居中 */
-}
-
-.about-avatar img {
-    position: relative;
-    top: -120px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    margin-bottom: -100px;
-    /* 调整间距，让h2标题更靠近头像 */
-}
-
-.about-avatar h2 {
-    margin-top: 0;
-    /* 移除标题的默认上边距 */
-    color: var(--font-color);
-    /* 使用主题的文字颜色变量 */
-}
-
-.about-avatar p {
-    margin-top: 0;
-    /* 移除段落的默认上边距 */
-    margin-bottom: 0;
-    color: var(--font-color);
-    /* 使用主题的文字颜色变量 */
-    font-size: 1.8em;
-    /* 加大字号 */
-    font-weight: bold;
-    /* 文字加粗 */
-}
-
-.about-avatar img:hover {
-    transform: rotate(180deg);
-}
-
-/* 社交图标样式 */
-.social-icons {
-    display: flex;
-    gap: 1.5rem;
-    /* 图标之间的间距 */
-    justify-content: center;
-    margin-bottom: 0;
-}
-
-.social-icons a {
-    font-size: 1.5rem;
-    /* 图标大小 */
-    color: var(--font-color);
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    transform: scale(1.3);
-    /* color: #49b1f5; */
-}
-
-/* 特定图标的颜色 */
-.social-icons a.qq-icon:hover {
-    color: #12B7F5;
-}
-
-.social-icons a.wechat-icon:hover {
-    color: #07C160;
-}
-
-.social-icons .fab-github:hover {
-    color: #333;
-}
