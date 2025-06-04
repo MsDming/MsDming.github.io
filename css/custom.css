@@ -67,7 +67,7 @@ body {
 
 /* 页面内容区域玻璃效果 - 动态响应式 */
 #page,
-#post,
+#post,#category,
 .recent-post-item,
 #archive {
     background: rgba(230, 238, 247, 0.75) !important;
@@ -86,6 +86,7 @@ body {
 /* 夜间模式下的页面样式 */
 [data-theme="dark"] #page,
 [data-theme="dark"] #post,
+[data-theme="dark"] #category,
 [data-theme="dark"] .recent-post-item,
 [data-theme="dark"] #sidebar-menus,
 [data-theme="dark"] #archive {
